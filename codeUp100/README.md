@@ -117,3 +117,98 @@ print(a<<b)
 
 > <<  시프트 연산은 2를 곱해준다
 
+### 52.정수 입력받아 참 거짓 평가하기(설명)
+
+```python
+a = int(input())
+print(bool(a))
+```
+> bool 함수를 이용해 정수값을 참,거짓으로 바꿀 수 있다.
+
+### 56. 참/거짓이 서로 다를 때에만 참 출력하기
+
+```python
+a,b = map(int,input().split(" "))
+print(bool(a)^bool(b))
+```
+
+> ^ 연산자를 통해 xor 연산을 해주었다. 두가지 값이 다를 때 참
+
+### 63. [기초-3항연산] 정수 2개 입력받아 큰 값 출력하기
+
+```python
+a,b = map(int,input().split())
+print(a if a>b else b)
+```
+
+> a if 조건 else b
+조건을 만족하면 a 아니면 b
+
+### 64. 정수 3개 입력받아 가장 작은 값 출력하기
+
+```python
+numbers = list(map(int,input().split()))
+print(min(numbers))
+```
+
+> min 함수를 통해 리스트에서 가장 작은값을 구할 수 있다.
+
+### 84. 소리 파일 저장용량 계산하기
+
+```python
+h, b, c, s = map(int, input().split())
+print('%.1f'% ((h*b*c*s)*(2**-23)), 'MB')
+```
+
+> ** 연산자를 통해 2의 23승으로 간편하게 나누어주었다. 
+bit를 MB로 바꿀때 간편하게 표현이 가능하다.
+
+
+### 92. 이상한 출석 번호 부르기 1
+
+```python
+cnt = int(input())
+nums = list(map(int,input().split()))
+d = [ 0 for _ in range(23)]
+
+for num in nums:
+    d[num-1] = d[num-1] + 1
+
+for answer in d :
+    print(answer,end=" ")
+
+```
+
+> d = [ 0 for _ in range(23)] 
+0이 23개 들어있는 리스트로 초기화
+
+### 95. 바둑판에 흰 돌 놓기
+
+```python
+d = [[0 for j in range(19)] for i in range(19)] 
+cnt = int(input())
+
+for _ in range(cnt):
+    x,y = map(int,input().split())
+    d[y-1][x-1] = 1
+
+for i in range(19) :
+    for j in range(19) :
+        print(d[j][i], end=" ")
+    print("")
+
+```
+
+> d = [[0 for j in range(19)] for i in range(19)]
+0이 19X19 로 들어가 있는 이중리스트 초기화
+
+### 96. 바둑알 십자 뒤집기
+
+```python
+d = []
+for i in range(19):                                 # 입력
+    line = list(map(int,input().split()))
+    d.append(line)
+```
+
+> 바둑판 입력받기 한줄 씩 리스트로 입력을 받은 후 미리 선언한 리스트에 추가해준다.
